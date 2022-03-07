@@ -19,7 +19,7 @@ The resulting Horcrux should not be posted on the public internet. Brain key's a
 
 ## Testing A Horcrux 
 
-![test](https://i.ibb.co/RzgwVyg/horcrux-example-big.png | width=500)
+![test](https://i.ibb.co/RzgwVyg/horcrux-example-big.png)
 
 - Download or take a picture of the QR code with your phone
 - Use a [ZXing](https://zxing.org/w/decode.jspx) based decoder to decode the 
