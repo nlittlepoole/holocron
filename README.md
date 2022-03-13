@@ -22,7 +22,7 @@ The resulting Horcrux should not be posted on the public internet. Brain key's a
 ![test](https://i.ibb.co/RzgwVyg/horcrux-example-big.png)
 
 - Download or take a picture of the QR code with your phone
-- Use a [ZXing](https://zxing.org/w/decode.jspx) based decoder to decode the 
+- Use a [ZXing](https://zxing.org/w/decode.jspx) based decoder ([like this one](https://online-barcode-reader.inliteresearch.com/)) to decode the 
 - Paste the resulting data uri in your browser 
 - Save the page as an html file to your local machine
 - Open the HTML file in your browser
