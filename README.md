@@ -22,7 +22,7 @@ The resulting Holocron should not be posted on the public internet. Brain key's 
 ![test](https://i.ibb.co/6X4L0RJ/test.png)
 
 - Download or take a picture of the QR code with your phone
-- Use a [ZXing](https://zxing.org/w/decode.jspx) based decoder to decode the QR code
+- Use a [ZXing](https://zxing.org/w/decode.jspx) based decoder ([like this one](https://online-barcode-reader.inliteresearch.com/)) to decode the 
 - Paste the resulting data uri in your browser 
 - Figure out the answer to the Gatekeeper prompt
 - Use the `Decrypt` in this directory (or any Balloon Hashing implementation) function along with the cipher and answer to decrypt
