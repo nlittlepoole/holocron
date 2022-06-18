@@ -1,4 +1,4 @@
-# Horcrux
+# Holocron
 [![forthebadge](https://forthebadge.com/images/badges/contains-technical-debt.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/uses-badges.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg)](https://forthebadge.com)
@@ -8,7 +8,7 @@
 ## About
 This is a tool to build QR codes with gatekeepers, meant to embed & protect information in physical objects, called a Holocrons. Holocrons are small ciphers that reveal a `treasure` when the right response to a prompt is provided. Holocron ciphers are small enough to be embedded in QR codes (and therefore [physical objects](https://qalo.com/collections/qr-dog-id-tags)). 
 
-The resulting Holocron should not be posted on the public internet. Brain key's aren't considered secure for [blockchain wallets](https://en.bitcoin.it/wiki/Brainwallet). However, in this case you can create a brain key (Holocron) that does not generate a wallet directly but rather points to a more secure wallet mnenomic phrase. On top of that, by embedding the Horcrux in an object and keeping it off the public internet, we create a second factor an attacker has to breach in order to access the treasure. The attacker has to both know the password to the Holocron but must also physically possess the Horcrux in order to steal the treasure.
+The resulting Holocron should not be posted on the public internet. Brain key's aren't considered secure for [blockchain wallets](https://en.bitcoin.it/wiki/Brainwallet). However, in this case you can create a brain key (Holocron) that does not generate a wallet directly but rather points to a more secure wallet mnenomic phrase. On top of that, by embedding the Holocron in an object and keeping it off the public internet, we create a second factor an attacker has to breach in order to access the treasure. The attacker has to both know the password to the Holocron but must also physically possess the Holocron in order to steal the treasure.
 
 # Quickstart
 
@@ -17,7 +17,7 @@ The resulting Holocron should not be posted on the public internet. Brain key's 
 - [Golang](https://go.dev//)
 
 
-## Testing A Horcrux 
+## Testing A Holocron 
 
 ![test](https://i.ibb.co/6X4L0RJ/test.png)
 
@@ -27,7 +27,7 @@ The resulting Holocron should not be posted on the public internet. Brain key's 
 - Figure out the answer to the Gatekeeper prompt
 - Use the `Decrypt` in this directory (or any Balloon Hashing implementation) function along with the cipher and answer to decrypt
 
-## Creating a Horcrux
+## Creating a Holocron
 
 ### Asumptions
 
@@ -39,8 +39,7 @@ The resulting Holocron should not be posted on the public internet. Brain key's 
 
 - `make HOLOCRON_NAME=test HOLOCRON_GATEKEEPER="2+2?" HOLOCRON_ASCERTAINMENT=4 HOLOCRON_TREASURE=foobar"`
 - Open .build folder to see QR code of holocron
-- 
-- Copy this key to use in creating a Horcrux
+- Copy this key to use in creating a Holocron
 
 ### Physical Storage
 
