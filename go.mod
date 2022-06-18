@@ -1,8 +1,10 @@
-module github.com/nlittlepoole/horcrux
+module github.com/nlittlepoole/holocron
 
 go 1.15
 
 require (
-	github.com/yeqown/go-qrcode/v2 v2.2.1
-	github.com/yeqown/go-qrcode/writer/standard v1.2.1
+	github.com/hoenirvili/skapt v0.0.0-20181026122304-fdaedd932adb
+	github.com/nogoegst/balloon v1.0.0
+	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
+	gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 // indirect
 )

@@ -1,9 +1,12 @@
 #
-# Horcrux
+# Holocron
 #
-HORCRUX_PROMPT?=
-HORCRUX_TREASURE?=
-HORCRUX_ENCRYPTED?=
+HOLOCRON_NAME?=
+HOLOCRON_GATEKEEPER?=
+HOLOCRON_TREASURE?=
+HOLOCRON_ASCERTAINMENT?=
+HOLOCRON_SALT?=foobar
+HOLOCRON_OUTDIR?=.build
 
 
 ifeq ($(OS),Windows_NT)
@@ -12,15 +15,10 @@ else
 	uname_S := $(shell uname -s)
 endif
 
-all: build serve
+all: forge
 
-serve:
-	docker build --target horcrux_server -t horcrux_server .
-	docker run -e HORCRUX_PROMPT="$(HORCRUX_PROMPT)" -e HORCRUX_TREASURE="$(HORCRUX_TREASURE)" -e HORCRUX_ENCRYPTED="$(HORCRUX_ENCRYPTED)" -itp "8090:8090" horcrux_server
+forge: $(HOLOCRON_OUTDIR)/forge
+	$(HOLOCRON_OUTDIR)/forge -n "$(HOLOCRON_NAME)" -g "$(HOLOCRON_GATEKEEPER)" -a "$(HOLOCRON_ASCERTAINMENT)" -t "$(HOLOCRON_TREASURE)" -s "$(HOLOCRON_SALT)" -o "$(HOLOCRON_OUTDIR)"
 
-build:
-	mkdir -p .build
-	docker build --target horcrux_build -t horcrux_build .
-	docker run -itv "$(PWD)/.build:/build/" -e HORCRUX_PROMPT="$(HORCRUX_PROMPT)" -e HORCRUX_TREASURE="$(HORCRUX_TREASURE)" -e HORCRUX_ENCRYPTED="$(HORCRUX_ENCRYPTED)" horcrux_build
-
-
+$(HOLOCRON_OUTDIR)/forge:
+	go build -o $(HOLOCRON_OUTDIR)/forge cmd/forge/main.go 
