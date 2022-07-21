@@ -39,7 +39,7 @@ func (h Holocron) Forge(outdir string) error {
 	message := strings.ReplaceAll(fmt.Sprintf(
 		`%s
 
-        Decode the following cipher using the answer to the above to reveal the treasure:
+        Decode the following cipher, using the answer to the above prompt, to reveal the treasure:
 
         %s
         - [salt]-[nonce]-[encrypted]
@@ -50,6 +50,26 @@ func (h Holocron) Forge(outdir string) error {
 	), "  ", " ")
 	encoded := generateBase64Encoding(h.Name, message)
 	return toQrCodeFile(filepath.Join(outdir, fmt.Sprintf("%s.png", h.Name)), encoded)
+}
+
+func (h Holocron) ForgeForWeb() (string, error) {
+	cipher := Encrypt(h.Ascertainment, h.Treasure, h.Salt)
+	message := strings.ReplaceAll(fmt.Sprintf(
+		`%s
+
+        Decode the following cipher, using the answer to the above prompt, to reveal the treasure:
+
+        %s
+
+        Decode using https://holocron.algo.xyz or the algorithm below:
+        - [salt]-[nonce]-[encrypted]
+        - Sha256 Balloon Hash (4096, 32) Answer to obtain the AES-GCM decoding key https://web.archive.org/details/https://en.wikipedia.org/wiki/Balloon_hashing
+        `,
+		h.Gatekeeper,
+		cipher,
+	), "  ", " ")
+	encoded := generateBase64Encoding(h.Name, message)
+	return toQrCodeBase64(encoded)
 }
 
 func deriveKey(passphrase string, salt []byte) ([]byte, []byte) {
@@ -109,4 +129,13 @@ func toQrCodeFile(filename, message string) error {
   		return err
   	}
   	return os.WriteFile(filename, png, 0644)
+}
+
+func toQrCodeBase64(message string) (string, error) {
+	var png []byte
+  	png, err := qrcode.Encode(message, qrcode.Medium, 256)
+  	if err != nil {
+  		return "", err
+  	}
+  	return "data:image/png;base64,"+ b64.StdEncoding.EncodeToString(png), nil
 }
